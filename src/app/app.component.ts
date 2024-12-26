@@ -9,6 +9,11 @@ import { CommonModule, NgFor } from '@angular/common';
 })
 export class AppComponent {
   title = 'Pagination';
+  currentPageIndex : number = 0;
+
+  setActivePage(i : number) : string{
+    return this.currentPageIndex==i ? "active":"";
+  }
   images=[
     {
       title : "At The Beach",
