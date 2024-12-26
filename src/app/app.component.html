@@ -1,16 +1,20 @@
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item" [ngClass]="{ disabled : currentPageIndex == 0}">
-      <a href="#" class="page-link">Previous</a>
+      <a (click)="currentPageIndex=currentPageIndex-1" href="#" class="page-link">Previous</a>
     </li>
 
     <li class="page-item" [ngClass]="setActivePage(i)" *ngFor="let image of images;let i=index;">
-      <a class="page-link" href="#" >{{i+1}}</a>    
+      <a (click)="currentPageIndex=i" class="page-link" href="#" >{{i+1}}</a>    
     </li>
  
     <li class="page-item" [ngClass]="{disabled : currentPageIndex === images.length-1}">
-      <a href="#" class="page-link">Next</a>
+      <a (click)="currentPageIndex=currentPageIndex+1" href="#" class="page-link">Next</a>
     </li>
 
   </ul>
 </nav>
+<div>
+  <h2>{{images[currentPageIndex].title}}</h2>
+  <img [src]="images[currentPageIndex].Url" alt="" style="max-width: 500px; max-height: 500px;">
+</div>
