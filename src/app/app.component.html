@@ -4,9 +4,12 @@
       <a (click)="currentPageIndex=currentPageIndex-1" href="#" class="page-link">Previous</a>
     </li>
 
-    <li class="page-item" [ngClass]="setActivePage(i)" *ngFor="let image of images;let i=index;">
-      <a (click)="currentPageIndex=i" class="page-link" href="#" >{{i+1}}</a>    
-    </li>
+    <ng-container *ngFor="let image of images;let i=index;">
+      <li class="page-item" [ngClass]="setActivePage(i)" *ngIf="CheckindexVisibility(i)" >
+        <a (click)="currentPageIndex=i" class="page-link" href="#" >{{i+1}}</a>    
+      </li>
+    </ng-container>
+   
  
     <li class="page-item" [ngClass]="{disabled : currentPageIndex === images.length-1}">
       <a (click)="currentPageIndex=currentPageIndex+1" href="#" class="page-link">Next</a>
