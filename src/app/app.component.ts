@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
+import { ColorClassDirective } from './color-class.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule,ColorClassDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
